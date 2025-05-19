@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.unaidarioefra.Controlador.JuegoControlador"
+            fx:controller="com.efragame.Controlador.JuegoControlador"
             onKeyPressed="#manejarTecla"
             focusTraversable="true">
     <center>

@@ -12,7 +12,7 @@ public class App extends Application {
         SceneManager.getInstance().init(primaryStage);
 
         FXMLLoader cargar = new FXMLLoader();
-        cargar.setLocation(getClass().getResource("/com/unaidarioefra/vistas/VistaEstadisticas.fxml"));
+        cargar.setLocation(getClass().getResource("/com/efraigame/vistas/VistaEstadisticas.fxml"));
         Parent root = cargar.load();
 
         Scene escena = new Scene(root);

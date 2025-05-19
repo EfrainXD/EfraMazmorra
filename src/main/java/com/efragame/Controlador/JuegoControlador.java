@@ -23,8 +23,8 @@ public class JuegoControlador {
     @FXML
     public void initialize() {
         try {
-            juego = new Juego("src/main/resources/com/unaidarioefra/files/mapa.csv",
-                              "src/main/resources/com/unaidarioefra/files/enemigos.csv");
+            juego = new Juego("src/main/resources/com/efragame/files/mapa.csv",
+                              "src/main/resources/com/efragame/files/enemigos.csv");
             dibujarMapa();
             actualizarEstadisticas();
 
@@ -39,12 +39,12 @@ public class JuegoControlador {
     private void dibujarMapa() {
         gridMapa.getChildren().clear();
         char[][] mapa = juego.getMapa();
-        Image imgSuelo = new Image(new File("src/main/resources/com/unaidarioefra/images/suelo1.jpg").toURI().toString());
-        Image imgPared = new Image(new File("src/main/resources/com/unaidarioefra/images/pared1.jpg").toURI().toString());
-        Image imgProta = new Image(new File("src/main/resources/com/unaidarioefra/images/prota.png").toURI().toString());
-        Image imgEsbirro = new Image(new File("src/main/resources/com/unaidarioefra/images/esbirro.png").toURI().toString());
-        Image imgEsqueleto = new Image(new File("src/main/resources/com/unaidarioefra/images/esqueleto.png").toURI().toString());
-        Image imgZombie = new Image(new File("src/main/resources/com/unaidarioefra/images/zombie.png").toURI().toString());
+        Image imgSuelo = new Image(new File("src/main/resources/com/efragame/images/suelo1.jpg").toURI().toString());
+        Image imgPared = new Image(new File("src/main/resources/com/efragame/images/pared1.jpg").toURI().toString());
+        Image imgProta = new Image(new File("src/main/resources/com/efragame/images/prota.png").toURI().toString());
+        Image imgEsbirro = new Image(new File("src/main/resources/com/efragame/images/esbirro.png").toURI().toString());
+        Image imgEsqueleto = new Image(new File("src/main/resources/com/efragame/images/esqueleto.png").toURI().toString());
+        Image imgZombie = new Image(new File("src/main/resources/com/efragame/images/zombie.png").toURI().toString());
 
         for (int y = 0; y < mapa.length; y++) {
             for (int x = 0; x < mapa[y].length; x++) {

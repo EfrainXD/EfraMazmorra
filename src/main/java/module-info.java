@@ -1,9 +1,9 @@
-module com.unaidarioefra {
+module com.efragame {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens com.unaidarioefra to javafx.fxml;
-    exports com.unaidarioefra;
-    opens com.unaidarioefra.Controlador to javafx.fxml;
-    exports com.unaidarioefra.Controlador to javafx.fxml;
+    opens com.efragame to javafx.fxml;
+    exports com.efragame;
+    opens com.efragame.Controlador to javafx.fxml;
+    exports com.efragame.Controlador to javafx.fxml;
 }

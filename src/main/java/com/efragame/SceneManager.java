@@ -27,11 +27,11 @@ public class SceneManager {
 
             switch (sceneID) {
                 case JUEGO:
-                    loader = new FXMLLoader(getClass().getResource("/com/unaidarioefra/vistas/VistaJuego.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaJuego.fxml"));
                     scene = new Scene(loader.load());
                     break;
                 case ESTADISTICAS:
-                    loader = new FXMLLoader(getClass().getResource("/com/unaidarioefra/vistas/VistaEstadisticas.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaEstadisticas.fxml"));
                     scene = new Scene(loader.load());
                     break;
                 default:
