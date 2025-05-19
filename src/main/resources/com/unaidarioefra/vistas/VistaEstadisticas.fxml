@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.unaidarioefra.Controlador.PortadaControlador"
+            prefWidth="600" prefHeight="400">
+    <children>
+        <VBox spacing="10" alignment="CENTER" layoutX="150" layoutY="100">
+            <Text text="¡Bienvenido a la Mazmorra!" style="-fx-font-size: 24px;"/>
+            <Button fx:id="Jugar" text="Comenzar Juego" prefWidth="300"/>
+        </VBox>
+    </children>
+</AnchorPane>

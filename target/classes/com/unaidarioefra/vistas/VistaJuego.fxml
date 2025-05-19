@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.TextArea?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.unaidarioefra.Controlador.JuegoControlador"
+            onKeyPressed="#manejarTecla"
+            focusTraversable="true">
+    <center>
+        <GridPane fx:id="gridMapa" hgap="0" vgap="0"/>
+    </center>
+    <bottom>
+        <VBox spacing="3" style="-fx-padding: 3;">
+            <Text fx:id="vidaProta" style="-fx-font-size: 14px;"/>
+            <TextArea fx:id="infoCombate" editable="false" wrapText="true" prefRowCount="3" style="-fx-font-size: 14px;"/>
+        </VBox>
+    </bottom>
+</BorderPane>
