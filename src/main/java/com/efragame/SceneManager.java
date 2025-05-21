@@ -31,7 +31,7 @@ public class SceneManager {
                     scene = new Scene(loader.load());
                     break;
                 case ESTADISTICAS:
-                    loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaEstadisticas.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaPortada.fxml"));
                     scene = new Scene(loader.load());
                     break;
                 default:
