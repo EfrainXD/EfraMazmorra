@@ -11,6 +11,6 @@ public class PortadaControlador {
 
     @FXML
     private void initialize() {
-        Jugar.setOnAction(e -> SceneManager.getInstance().switchTo(SceneID.JUEGO));;
+        Jugar.setOnAction(e -> SceneManager.getInstance().switchTo(SceneID.PERSONALIZACION));
     }
 }

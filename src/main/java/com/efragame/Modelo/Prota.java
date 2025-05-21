@@ -1,5 +1,7 @@
 package com.efragame.Modelo;
 
+import com.efragame.EstadisticasPersonaje;
+
 public class Prota {
     private int x, y;
     private Estadisticas stats;
@@ -7,12 +9,22 @@ public class Prota {
     public Prota(int x, int y) {
         this.x = x;
         this.y = y;
-        this.stats = new Estadisticas(100, 20, 15, 5, 10);
+        
+        // Obtener las estadísticas personalizadas del singleton
+        EstadisticasPersonaje estatPers = EstadisticasPersonaje.getInstance();
+        this.stats = new Estadisticas(
+            estatPers.getSalud(),
+            estatPers.getFuerza(),
+            estatPers.getDefensa(),
+            estatPers.getEvasion(),
+            estatPers.getVelocidad()
+        );
     }
 
     public int getX() { 
         return x; 
     }
+    
     public int getY() { 
         return y; 
     }

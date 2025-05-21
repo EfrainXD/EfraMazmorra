@@ -23,8 +23,9 @@ public class JuegoControlador {
     @FXML
     public void initialize() {
         try {
-            juego = new Juego("src/main/resources/com/efragame/files/mapa.csv",
-                              "src/main/resources/com/efragame/files/enemigos.csv");
+            juego = new Juego(
+                "src/main/resources/com/efragame/files/mapa.csv",
+                "src/main/resources/com/efragame/files/enemigos.csv");
             dibujarMapa();
             actualizarEstadisticas();
 

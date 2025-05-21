@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.efragame.Controlador.PersonalizacionControlador"
+            prefWidth="600" prefHeight="400">
+    <top>
+        <Text text="Personaliza tu Personaje" style="-fx-font-size: 24px;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="20" bottom="10" />
+            </BorderPane.margin>
+        </Text>
+    </top>
+    
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <padding>
+                <Insets left="50" right="50" />
+            </padding>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Salud:" minWidth="80" />
+                <Slider fx:id="saludSlider" min="1" max="100" value="50" showTickLabels="true" 
+                       showTickMarks="true" majorTickUnit="25" minorTickCount="5" HBox.hgrow="ALWAYS" />
+                <Label fx:id="saludLabel" text="50" minWidth="30" />
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Fuerza:" minWidth="80" />
+                <Slider fx:id="fuerzaSlider" min="1" max="20" value="10" showTickLabels="true" 
+                       showTickMarks="true" majorTickUnit="5" minorTickCount="4" HBox.hgrow="ALWAYS" />
+                <Label fx:id="fuerzaLabel" text="10" minWidth="30" />
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Defensa:" minWidth="80" />
+                <Slider fx:id="defensaSlider" min="1" max="20" value="10" showTickLabels="true" 
+                       showTickMarks="true" majorTickUnit="5" minorTickCount="4" HBox.hgrow="ALWAYS" />
+                <Label fx:id="defensaLabel" text="10" minWidth="30" />
+            </HBox>
+            
+            <HBox spacing="10" alignment="CENTER">
+                <Label text="Evasión:" minWidth="80" />
+                <Slider fx:id="evasionSlider" min="1" max="20" value="5" showTickLabels="true" 
+                       showTickMarks="true" majorTickUnit="5" minorTickCount="4" HBox.hgrow="ALWAYS" />
+                <Label fx:id="evasionLabel" text="5" minWidth="30" />
+            </HBox>
+            
+            <VBox alignment="CENTER" spacing="5">
+                <Text text="Costos de atributos:" style="-fx-font-weight: bold;"/>
+                <Text text="Salud: 1 punto | Fuerza: 3 puntos | Defensa: 3 puntos | Evasión: 3 puntos"/>
+                <Text text="Puntos totales: 200"/>
+                <Text fx:id="puntosDisponibles" text="Puntos disponibles: 0" style="-fx-font-size: 16px;" />
+            </VBox>
+        </VBox>
+    </center>
+    
+    <bottom>
+        <HBox spacing="20" alignment="CENTER">
+            <padding>
+                <Insets bottom="20" />
+            </padding>
+            <Button fx:id="Volver" text="Volver" prefWidth="120" />
+            <Button fx:id="Iniciar" text="Iniciar Juego" prefWidth="120" />
+        </HBox>
+    </bottom>
+</BorderPane>

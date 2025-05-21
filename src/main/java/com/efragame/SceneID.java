@@ -1,5 +1,5 @@
 package com.efragame;
 
 public enum SceneID {
-    JUEGO, ESTADISTICAS
+    JUEGO, PORTADA, PERSONALIZACION
 }

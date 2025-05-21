@@ -13,7 +13,7 @@ public class App extends Application {
 
         FXMLLoader cargar = new FXMLLoader();
         cargar.setLocation(getClass().getResource("/com/efragame/vistas/VistaPortada.fxml"
-));
+    ));
         Parent root = cargar.load();
 
         Scene escena = new Scene(root);

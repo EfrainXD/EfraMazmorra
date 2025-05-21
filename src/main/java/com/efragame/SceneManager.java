@@ -30,8 +30,12 @@ public class SceneManager {
                     loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaJuego.fxml"));
                     scene = new Scene(loader.load());
                     break;
-                case ESTADISTICAS:
+                case PORTADA:
                     loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaPortada.fxml"));
+                    scene = new Scene(loader.load());
+                    break;
+                case PERSONALIZACION:
+                    loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaPersonalizacion.fxml"));
                     scene = new Scene(loader.load());
                     break;
                 default:
