@@ -31,8 +31,8 @@ public class Estadisticas {
         return velocidad; 
     }
 
-    public boolean estaVivo() { 
-        return salud > 0; 
+    public boolean estaVivo() {
+        return salud > 0;
     }
 
     public void recibirDanio(int danio) {

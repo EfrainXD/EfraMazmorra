@@ -3,14 +3,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.efragame.Controlador.PortadaControlador"
-            prefWidth="600" prefHeight="400">
-    <children>
-        <VBox spacing="10" alignment="CENTER" layoutX="150" layoutY="100">
-            <Text text="¡Bienvenido a la Mazmorra!" style="-fx-font-size: 24px;"/>
-            <Button fx:id="Jugar" text="Comenzar Juego" prefWidth="300"/>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.efragame.Controlador.PortadaControlador">
+    
+    <center>
+        <VBox spacing="20" alignment="CENTER" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="50" bottom="50" left="50" right="50"/>
+            </padding>
+            
+            <!-- Título con tamaño responsive -->
+            <Text text="Trilogía de Mazmorras" 
+                  style="-fx-font-size: 3em; -fx-font-weight: bold; -fx-text-alignment: center;"
+                  textAlignment="CENTER"
+                  wrappingWidth="600"/>
+            
+            <!-- Espaciador flexible -->
+            <Region VBox.vgrow="ALWAYS" minHeight="20"/>
+            
+            <!-- Botón con tamaño adaptativo -->
+            <Button fx:id="Jugar" text="Comenzar Juego" 
+                    style="-fx-font-size: 1.2em; -fx-padding: 15 30;"
+                    maxWidth="400" minWidth="200"
+                    prefWidth="300"/>
+            
+            <!-- Espaciador flexible -->
+            <Region VBox.vgrow="ALWAYS" minHeight="20"/>
         </VBox>
-    </children>
-</AnchorPane>
+    </center>
+</BorderPane>

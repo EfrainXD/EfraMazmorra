@@ -1,7 +1,5 @@
 package com.efragame.Modelo;
 
-import com.efragame.EstadisticasPersonaje;
-
 public class Prota {
     private int x, y;
     private Estadisticas stats;

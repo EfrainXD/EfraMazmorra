@@ -1,8 +1,8 @@
 package com.efragame.Controlador;
 
-import com.efragame.EstadisticasPersonaje;
 import com.efragame.SceneID;
 import com.efragame.SceneManager;
+import com.efragame.Modelo.EstadisticasPersonaje;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

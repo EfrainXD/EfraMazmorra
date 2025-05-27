@@ -25,6 +25,12 @@ public class SceneManager {
             FXMLLoader loader;
             Scene scene;
 
+            // Guardar dimensiones actuales
+            double currentWidth = primaryStage.getWidth();
+            double currentHeight = primaryStage.getHeight();
+            double currentX = primaryStage.getX();
+            double currentY = primaryStage.getY();
+
             switch (sceneID) {
                 case JUEGO:
                     loader = new FXMLLoader(getClass().getResource("/com/efragame/vistas/VistaJuego.fxml"));
@@ -43,6 +49,13 @@ public class SceneManager {
             }
 
             primaryStage.setScene(scene);
+            
+            // Restaurar dimensiones y posición
+            primaryStage.setWidth(currentWidth);
+            primaryStage.setHeight(currentHeight);
+            primaryStage.setX(currentX);
+            primaryStage.setY(currentY);
+            
             primaryStage.show();
 
         } catch (IOException e) {

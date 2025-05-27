@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.efragame.Controlador.JuegoControlador"
-            onKeyPressed="#manejarTecla"
-            focusTraversable="true">
+<BorderPane fx:id="borderPane" focusTraversable="true" onKeyPressed="#manejarTecla" prefWidth="458.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.efragame.Controlador.JuegoControlador">
     <center>
-        <GridPane fx:id="gridMapa" hgap="0" vgap="0"/>
+        <StackPane fx:id="stackCentro" BorderPane.alignment="CENTER">
+            <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #2b2b2b;">
+                <StackPane alignment="CENTER" style="-fx-background-color: #2b2b2b;">
+                    <GridPane fx:id="gridMapa" alignment="CENTER" style="-fx-background-color: #2b2b2b; -fx-padding: 5;" />
+                </StackPane>
+            </ScrollPane>
+        </StackPane>
     </center>
-    <bottom>
-        <VBox spacing="3" style="-fx-padding: 3;">
-            <Text fx:id="vidaProta" style="-fx-font-size: 14px;"/>
-            <TextArea fx:id="infoCombate" editable="false" wrapText="true" prefRowCount="3" style="-fx-font-size: 14px;"/>
+
+    <right>
+        <VBox prefHeight="94.0" prefWidth="300.0" spacing="8" style="-fx-background-color: #1e1e1e;">
+            <padding>
+                <Insets bottom="5" left="5" right="5" top="5" />
+            </padding>
+            
+                                          <!-- Estadísticas del protagonista -->  
+            <Text fx:id="vidaProta" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-fill: white;" />
+            
+                                                                  <!-- Área de información de combate -->
+            <TextArea fx:id="infoCombate" editable="false" focusTraversable="false" maxHeight="120" prefRowCount="4" style="-fx-control-inner-background: #333333; -fx-text-fill: white; -fx-font-size: 12px;" wrapText="true" />
         </VBox>
-    </bottom>
+    </right>
 </BorderPane>

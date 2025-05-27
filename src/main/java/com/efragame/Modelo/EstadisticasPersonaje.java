@@ -1,4 +1,4 @@
-package com.efragame;
+package com.efragame.Modelo;
 
 public class EstadisticasPersonaje {
     private static EstadisticasPersonaje instance;
