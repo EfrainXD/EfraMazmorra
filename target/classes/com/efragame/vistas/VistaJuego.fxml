@@ -21,16 +21,25 @@
     </center>
 
     <right>
-        <VBox prefHeight="94.0" prefWidth="300.0" spacing="8" style="-fx-background-color: #1e1e1e;">
+        <VBox prefHeight="94.0" prefWidth="400.0" spacing="8" style="-fx-background-color: #1e1e1e;">
             <padding>
                 <Insets bottom="5" left="5" right="5" top="5" />
             </padding>
             
-                                          <!-- Estadísticas del protagonista -->  
+            <!-- Estadísticas del protagonista -->  
             <Text fx:id="vidaProta" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-fill: white;" />
             
-                                                                  <!-- Área de información de combate -->
+            <!-- Área de información de combate -->
             <TextArea fx:id="infoCombate" editable="false" focusTraversable="false" maxHeight="120" prefRowCount="4" style="-fx-control-inner-background: #333333; -fx-text-fill: white; -fx-font-size: 12px;" wrapText="true" />
+            
+            <!-- Panel de información de personajes -->
+            <ScrollPane fx:id="scrollPanelStats" fitToWidth="true" maxHeight="500" style="-fx-background-color: #1e1e1e;" vbarPolicy="never" hbarPolicy="never">
+                <VBox fx:id="panelStats" spacing="5" style="-fx-background-color: #1e1e1e;">
+                    <padding>
+                        <Insets bottom="5" left="5" right="5" top="5" />
+                    </padding>
+                </VBox>
+            </ScrollPane>
         </VBox>
     </right>
 </BorderPane>

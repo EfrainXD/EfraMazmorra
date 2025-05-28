@@ -1,13 +1,16 @@
 package com.efragame.Controlador;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -25,6 +28,8 @@ import com.efragame.SceneManager;
 
 public class JuegoControlador {
     @FXML private BorderPane borderPane;
+    @FXML private ScrollPane scrollPanelStats;
+    @FXML private VBox panelStats;
     @FXML private GridPane gridMapa;
     @FXML private Text vidaProta;
     @FXML private TextArea infoCombate;
@@ -410,6 +415,122 @@ public class JuegoControlador {
 
     private void actualizarEstadisticas() {
         vidaProta.setText("Vida: " + juego.getProta().getEstadisticas().getSalud());
+        actualizarPanelStats(); // AÑADIR ESTA LÍNEA
+    }
+
+    private void actualizarPanelStats() {
+        panelStats.getChildren().clear();
+        
+        // Información del protagonista
+        if (juego.getProta().estaVivo()) {
+            VBox protaBox = crearPanelPersonaje(
+                "PROTAGONISTA",
+                "src/main/resources/com/efragame/images/protagonista.png",
+                juego.getProta().getEstadisticas().getSalud(),
+                juego.getProta().getEstadisticas().getFuerza(),
+                juego.getProta().getEstadisticas().getDefensa(),
+                Color.LIGHTGREEN
+            );
+            panelStats.getChildren().add(protaBox);
+        }
+        
+        // Información de enemigos vivos
+        Text tituloEnemigos = new Text("ENEMIGOS:");
+        tituloEnemigos.setFill(Color.RED);
+        tituloEnemigos.setFont(Font.font("Arial", 14));
+        panelStats.getChildren().add(tituloEnemigos);
+        
+        for (Enemigo e : juego.getEnemigos()) {
+            if (e.estaVivo()) {
+                String imagePath = obtenerImagenEnemigo(e.getTipo());
+                VBox enemigoBox = crearPanelPersonaje(
+                    e.getTipo().toString(),
+                    imagePath,
+                    e.getSalud(),
+                    e.getTipo().getAtaque(),
+                    0, // Los enemigos no tienen defensa visible
+                    Color.LIGHTCORAL
+                );
+                panelStats.getChildren().add(enemigoBox);
+            }
+        }
+    }
+
+    private String obtenerImagenEnemigo(EnemigoTipo tipo) {
+        switch (tipo) {
+            case ESBIRRO: 
+                return "src/main/resources/com/efragame/images/esbirro.png";
+            case ESQUELETO: 
+                return "src/main/resources/com/efragame/images/esqueleto.png";
+            case ZOMBIE:
+                return "src/main/resources/com/efragame/images/zombie.png";
+            default:
+                return "src/main/resources/com/efragame/images/esbirro.png";
+        }
+    }
+
+    private VBox crearPanelPersonaje(String nombre, String imagePath, int vida, int ataque, int defensa, Color colorFondo) {
+        VBox panel = new VBox(3);
+        panel.setStyle("-fx-background-color: rgba(" + 
+            (int)(colorFondo.getRed() * 255) + "," + 
+            (int)(colorFondo.getGreen() * 255) + "," + 
+            (int)(colorFondo.getBlue() * 255) + ",0.2); " +
+            "-fx-border-color: " + toHexString(colorFondo) + "; " +
+            "-fx-border-width: 1; -fx-padding: 5;");
+        
+        // Crear HBox para imagen y stats
+        HBox contenido = new HBox(8);
+        contenido.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
+        
+        // Imagen del personaje
+        try {
+            Image img = new Image(new File(imagePath).toURI().toString());
+            ImageView imgView = new ImageView(img);
+            imgView.setFitWidth(40);
+            imgView.setFitHeight(40);
+            imgView.setPreserveRatio(true);
+            contenido.getChildren().add(imgView);
+        } catch (Exception e) {
+            // Si no se puede cargar la imagen, crear un rectángulo de color
+            Rectangle rect = new Rectangle(40, 40, colorFondo);
+            contenido.getChildren().add(rect);
+        }
+        
+        // Stats del personaje
+        VBox stats = new VBox(2);
+        
+        Text nombreText = new Text(nombre);
+        nombreText.setFill(Color.WHITE);
+        nombreText.setFont(Font.font("Arial", 12));
+        
+        Text vidaText = new Text("Vida: " + vida);
+        vidaText.setFill(Color.LIGHTGREEN);
+        vidaText.setFont(Font.font("Arial", 10));
+        
+        Text ataqueText = new Text("Ataque: " + ataque);
+        ataqueText.setFill(Color.ORANGE);
+        ataqueText.setFont(Font.font("Arial", 10));
+        
+        stats.getChildren().addAll(nombreText, vidaText, ataqueText);
+        
+        if (defensa > 0) {
+            Text defensaText = new Text("Defensa: " + defensa);
+            defensaText.setFill(Color.LIGHTBLUE);
+            defensaText.setFont(Font.font("Arial", 10));
+            stats.getChildren().add(defensaText);
+        }
+        
+        contenido.getChildren().add(stats);
+        panel.getChildren().add(contenido);
+        
+        return panel;
+    }
+
+    private String toHexString(Color color) {
+        return String.format("#%02X%02X%02X",
+            (int)(color.getRed() * 255),
+            (int)(color.getGreen() * 255),
+            (int)(color.getBlue() * 255));
     }
 
     // Agregar controles para reiniciar y salir
