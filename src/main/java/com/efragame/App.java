@@ -45,7 +45,7 @@ public class App extends Application {
         
         // Crear la escena con el tamaño calculado
         Scene escena = new Scene(root, windowWidth, windowHeight);
-        primaryStage.setTitle("Trilogía de Mazmorras");
+        primaryStage.setTitle("Juego de mazmorra");
         primaryStage.setScene(escena);
         
         // Establecer tamaño mínimo de la ventana para jugabilidad

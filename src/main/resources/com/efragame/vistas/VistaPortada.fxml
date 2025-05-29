@@ -15,7 +15,7 @@
             </padding>
             
             <!-- Título con tamaño responsive -->
-            <Text text="Trilogía de Mazmorras" 
+            <Text text="Juego de mazmorras" 
                   style="-fx-font-size: 3em; -fx-font-weight: bold; -fx-text-alignment: center;"
                   textAlignment="CENTER"
                   wrappingWidth="600"/>
