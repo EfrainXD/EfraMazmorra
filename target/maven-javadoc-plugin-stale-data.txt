@@ -1,0 +1,55 @@
+@options
+@packages
+@argfile
+--class-path
+'C:/Users/Efrain/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar'
+--module-path
+'C:/Users/Efrain/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar;c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/target/classes;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar;C:/Users/Efrain/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-win.jar'
+--patch-module
+com.efragame='c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/src/main/java'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+--module-source-path
+'c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/target/site/apidocs/src'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'efragame 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'efragame 1.0-SNAPSHOT API'
+com.efragame
+com.efragame.Controlador
+'c:/Users/Efrain/Desktop/DAW1B/Programacion/EfraMazmorra/src/main/java/module-info.java'
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\allclasses-index.html = 1748555278595
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\allpackages-index.html = 1748555278598
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\copy.svg = 1748555278668
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\element-list = 1748555278445
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\help-doc.html = 1748555278659
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\index-all.html = 1748555278634
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\index.html = 1748555278642
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\link.svg = 1748555278674
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\member-search-index.js = 1748555278607
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\module-search-index.js = 1748555278601
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\overview-tree.html = 1748555278570
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\package-search-index.js = 1748555278604
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\script.js = 1748555278668
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\search-page.js = 1748555278682
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\search.html = 1748555278637
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\search.js = 1748555278677
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\stylesheet.css = 1748555278665
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\tag-search-index.js = 1748555278610
+c:\Users\Efrain\Desktop\DAW1B\Programacion\EfraMazmorra\target\site\apidocs\type-search-index.js = 1748555278606
