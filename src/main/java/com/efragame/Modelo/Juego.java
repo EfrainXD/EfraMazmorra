@@ -178,4 +178,36 @@ public class Juego {
             }
         }
     }
+
+    // Agregar después del método obtenerEnemigoEn()
+    public boolean esMaldicion(int x, int y) {
+        return mapa[y][x] == 'M';
+    }
+
+    // Agregar después del método moverEnemigos()
+    public void aplicarMaldicionAleatoria() {
+        List<Object> personajes = new ArrayList<>();
+        
+        if (prota.estaVivo()) {
+            personajes.add(prota);
+        }
+        
+        for (Enemigo e : enemigos) {
+            if (e.estaVivo()) {
+                personajes.add(e);
+            }
+        }
+        
+        if (personajes.isEmpty()) return;
+
+        Object victima = personajes.get(new Random().nextInt(personajes.size()));
+        
+        if (victima instanceof Prota) {
+            Prota p = (Prota) victima;
+            p.getEstadisticas().aplicarMaldicion();
+        } else if (victima instanceof Enemigo) {
+            Enemigo e = (Enemigo) victima;
+            e.getEstadisticas().aplicarMaldicion();
+        }
+    }
 }

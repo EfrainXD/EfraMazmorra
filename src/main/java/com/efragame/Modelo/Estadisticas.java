@@ -14,6 +14,7 @@ public class Estadisticas {
     private int evasion;
     /** Velocidad del personaje, usada para determinar orden de turnos */
     private int velocidad;
+    private int saludMaxima;
 
     /**
      * Constructor para inicializar todas las estadísticas del personaje.
@@ -30,6 +31,7 @@ public class Estadisticas {
         this.defensa = defensa;
         this.evasion = evasion;
         this.velocidad = velocidad;
+        this.saludMaxima = salud;
     }
 
     /**
@@ -93,5 +95,28 @@ public class Estadisticas {
     public void recibirDanio(int danio) {
         int recibido = Math.max(0, danio - defensa);
         salud = Math.max(0, salud - recibido);
+    }
+
+
+    public int getSaludMaxima() {
+        return saludMaxima;
+    }
+
+    public void setSaludMaxima(int saludMaxima) {
+        this.saludMaxima = saludMaxima;
+        if (this.salud > saludMaxima) {
+            this.salud = saludMaxima;
+        }
+    }
+
+    public void aplicarMaldicion() {
+        int reduccion = (int) Math.ceil(saludMaxima * 0.25);
+        saludMaxima -= reduccion;
+        salud = Math.min(salud, saludMaxima);
+        if (salud > saludMaxima) {
+            salud -= reduccion;
+        }
+        if (salud < 0) salud = 0;
+        if (saludMaxima < 1) saludMaxima = 1;
     }
 }

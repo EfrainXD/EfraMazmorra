@@ -3,7 +3,7 @@ package com.efragame.Modelo;
 /**
  * Clase que representa el mapa del juego como una matriz de caracteres.
  * Cada celda del mapa puede representar distintos elementos del escenario,
- * como suelo, muros u otros elementos especiales.
+ * como suelo, muros, casillas malditas u otros elementos especiales.
  */
 public class Mapa {
 
@@ -49,6 +49,22 @@ public class Mapa {
     }
 
     /**
+     * Devuelve el tipo de celda en la posición (x, y).
+     *
+     * @param x coordenada X de la celda
+     * @param y coordenada Y de la celda
+     * @return tipo de celda correspondiente
+     */
+    public TipoCelda getTipoCelda(int x, int y) {
+        char c = getCelda(x, y);
+        switch (c) {
+            case '#': return TipoCelda.PARED;
+            case 'M': return TipoCelda.MALDICION;
+            default: return TipoCelda.SUELO;
+        }
+    }
+
+    /**
      * Indica si la celda en la posición (x, y) es un muro.
      * Se considera muro si el carácter es '#'.
      *
@@ -57,7 +73,11 @@ public class Mapa {
      * @return {@code true} si la celda es un muro; {@code false} en caso contrario
      */
     public boolean esMuro(int x, int y) {
-        return getCelda(x, y) == '#';
+        return getTipoCelda(x, y) == TipoCelda.PARED;
+    }
+
+    public boolean esMaldicion(int x, int y) {
+        return getTipoCelda(x, y) == TipoCelda.MALDICION;
     }
 
     /**

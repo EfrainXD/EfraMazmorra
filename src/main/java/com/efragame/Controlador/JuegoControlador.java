@@ -294,12 +294,23 @@ public class JuegoControlador {
         Image imgEsqueleto = new Image(new File("src/main/resources/com/efragame/images/esqueleto.png").toURI().toString());
         Image imgZombie = new Image(new File("src/main/resources/com/efragame/images/zombie.png").toURI().toString());
 
+        Image imgMaldicion = new Image(new File("src/main/resources/com/efragame/images/maldicion.png").toURI().toString());
+
         for (int y = 0; y < mapa.length; y++) {
             for (int x = 0; x < mapa[y].length; x++) {
-                ImageView imgView = new ImageView(mapa[y][x] == '#' ? imgPared : imgSuelo);
+                Image imgFondo;
+                if (mapa[y][x] == '#') {
+                    imgFondo = imgPared;
+                } else if (mapa[y][x] == 'M') {
+                    imgFondo = imgMaldicion;
+                } else {
+                    imgFondo = imgSuelo;
+                }
+                
+                ImageView imgView = new ImageView(imgFondo);
                 imgView.setFitWidth(tamañoCelda);
                 imgView.setFitHeight(tamañoCelda);
-                imgView.setPreserveRatio(false); // Permitir deformación para llenar la celda
+                imgView.setPreserveRatio(false);
                 gridMapa.add(imgView, x, y);
             }
         }
@@ -352,7 +363,6 @@ public class JuegoControlador {
      * @param dy desplazamiento vertical (-1 arriba, 1 abajo, 0 sin cambio)
      */
     private void moverProta(int dx, int dy) {
-        // No mover si el juego terminó o el protagonista está muerto
         if (juegoTerminado || !juego.getProta().estaVivo()) {
             return;
         }
@@ -368,7 +378,7 @@ public class JuegoControlador {
 
         Enemigo enemigo = juego.obtenerEnemigoEn(nuevoX, nuevoY);
         if (enemigo != null) {
-            System.out.println("¡Encontraste un enemigo!");
+            System.out.println("Encontraste un enemigo");
             infoCombate.clear();
             combatir(p, enemigo);
             actualizarEstadisticas();
@@ -376,17 +386,19 @@ public class JuegoControlador {
             System.out.println("Moviendo de (" + p.getX() + "," + p.getY() + ") a (" + nuevoX + "," + nuevoY + ")");
             p.setPosicion(nuevoX, nuevoY);
             infoCombate.clear();
+            
+            // Verificar si pisó una casilla maldita
+            if (juego.esMaldicion(nuevoX, nuevoY)) {
+                aplicarMaldicionAleatoria();
+            }
         }
 
-        // Solo mover enemigos si el protagonista sigue vivo
-        if (juego.getProta().estaVivo()) {
+        if (juego.esMaldicion(nuevoX, nuevoY)) {
             moverEnemigosConPercepcion();
         }
 
         dibujarMapa();
         actualizarEstadisticas();
-        
-        // Comprobar estado del juego después de cada movimiento
         verificarEstadoJuego();
     }
 
@@ -661,5 +673,10 @@ public class JuegoControlador {
                 break;  
         }
         event.consume();
+    }
+
+    private void aplicarMaldicionAleatoria() {
+        juego.aplicarMaldicionAleatoria();
+        infoCombate.appendText("MALDICION Un personaje ha sido maldecido y perdió el 25% de su vida máxima.\n");
     }
 }
